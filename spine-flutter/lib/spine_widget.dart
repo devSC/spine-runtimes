@@ -405,6 +405,9 @@ class _SpineWidgetState extends State<SpineWidget> {
   }
 
   void loadDrawable(SkeletonDrawable drawable) {
+    if (!mounted) {
+      return;
+    }
     _drawable = drawable;
     _computedBounds = widget._boundsProvider.computeBounds(drawable);
     widget._controller._initialize(drawable);
